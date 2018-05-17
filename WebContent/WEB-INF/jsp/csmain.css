@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-size: 20px;
+    background-image: url(photo-1514240260836-9a743d46148c.jpg);
+}
+
+h1{
+    padding-top: 50px;
+    color:white;
+    font-family:serif;
+    text-align: center;
+    font-size: 60px;
+}
+
+h3{
+    color:white;
+    font-family:serif;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+header{
+    background-color: black;
+    height: 200px;
+    opacity: 0.9;
+}
+#main{
+    width: 50%;
+    margin: 0 auto;
+    background-color: #f48042;
+    min-height:640px;
+    clear:both;
+    padding-top: 50px;
+    opacity: 0.9;
+}
+
+input{
+	height:20px;
+	width:150px;
+    margin: auto;
+}
+
+#tag{
+    font-size: 0px;
+    background-clip: black;
+}
+
