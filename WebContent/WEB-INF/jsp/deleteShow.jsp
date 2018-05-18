@@ -11,7 +11,7 @@
             <input type="submit" value="logOut"/>
         </td>
 </form:form>
-<form:form method="POST" action="/SpringMVCExample/returnMain">
+<form:form method="POST" action="/SpringMVCExample/returnAdminHome">
         <td colspan="2">
             <input type="submit" value="Return"/>
         </td>

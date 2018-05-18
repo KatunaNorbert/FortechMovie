@@ -49,7 +49,7 @@ public class ReservationDAOImpl implements ReservationDAO{
 		session.getTransaction().commit();
 		List<Integer> intLis=new ArrayList<Integer>();
 		for(Reservation r:rLis) {
-			intLis.add(r.getId());
+			intLis.add(r.getIdShow());
 		}
 		return intLis;
 	}

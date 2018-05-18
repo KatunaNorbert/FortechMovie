@@ -30,6 +30,10 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>movie</servlet-name>
+    <url-pattern>/returnAdminHome</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>movie</servlet-name>
     <url-pattern>/showReservations</url-pattern>
   </servlet-mapping>
   <servlet-mapping>

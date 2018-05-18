@@ -7,6 +7,15 @@ body{
     background-image: url(photo-1514240260836-9a743d46148c.jpg);
 }
 
+.table{
+	width: 100%;
+	heigth: 200px;
+}
+
+td{
+	font-size: 30px;
+}
+
 h1{
     padding-top: 50px;
     color:white;

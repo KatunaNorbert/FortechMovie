@@ -51,6 +51,13 @@ public class MovieAppController {
 	      return "main";
 	   }
 	 
+	 @RequestMapping(value = "/returnAdminHome", method = RequestMethod.POST)
+	   public String returnAdminHome(ModelMap model) {
+		  model.addAttribute("name",me.getName());
+		  model.addAttribute("mList", movieDAO.listMovies());
+	      return "adminHome";
+	   }
+	 
    @RequestMapping(value = "/logInMVC", method = RequestMethod.GET)
    public ModelAndView login() {
       return new ModelAndView("login", "command", new User());
@@ -84,9 +91,13 @@ public class MovieAppController {
    public ModelAndView showReservations(ModelMap model) {
       model.addAttribute("name", me.getName());
       List<Integer> shows=resDAO.userReservations(me.getId());
+      System.out.println(shows);
       List<Show> reservations=new ArrayList<Show>();
       for(int ids:shows) {
-    	  		reservations=showDAO.getShowById(ids);
+    	  		System.out.println(showDAO.getShowById(ids));
+    	  		for(Show s:showDAO.getShowById(ids)) {
+    	  			reservations.add(s);
+    	  		}
       }
       model.addAttribute("mList",reservations);
       return new ModelAndView("myReservations");
@@ -97,8 +108,15 @@ public class MovieAppController {
    public String addReservation(@ModelAttribute("SpringWeb")Reservation res, 
    ModelMap model) {
 	  res.getIdShow();
-	  System.out.println(res.getIdShow());
-	  System.out.println(me.getId());
+	  Show s=showDAO.getShowById(res.getIdShow()).get(0);
+	  int NumberOfSeats=s.getSeats();
+	  if(NumberOfSeats==0) {
+		  model.addAttribute("mList", movieDAO.listMovies());
+		  return "reservation"; 
+	  }
+	  --NumberOfSeats;
+	  s.setSeats(NumberOfSeats);
+	  showDAO.updateShow(s);
 	  res.setIdUser(me.getId());
 	  resDAO.addReservation(res);
 	  model.addAttribute("mList", movieDAO.listMovies());
